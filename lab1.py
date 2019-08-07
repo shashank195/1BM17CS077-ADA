@@ -1,5 +1,3 @@
-print("Enter numbers in array")
-
 def set_integers():
     num_array = list()
     num = input("Enter how many elements you want:")
