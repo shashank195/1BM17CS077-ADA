@@ -13,4 +13,5 @@ def compute_square_root(n):
             high = mid - 1
     return root
 
-print(compute_square_root(1))
+n = int(input("Enter number"))
+print(compute_square_root(n))
