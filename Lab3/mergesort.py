@@ -9,7 +9,6 @@ def combine(a, low, middle, high):
     i = low
     j = middle+1
     c = []
-    print(low,high)
     while i <= middle and j <= high:
         if a[i] < a[j]:
             c.append(a[i])
