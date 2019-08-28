@@ -25,13 +25,15 @@ def combine(a, low, middle, high):
         while i <= middle:
             c.append(a[i])
             i += 1 
-    for i in range(low, high):
-        a[i] = c[i]
+            
+    for i in range(low, high+1):
+        a[i] = c[i-low]
+        
 
 
-a = [7,99,3,45,124]
+a = [5,4,3,2,1]
 
-
+print(len(a)-1)
 split(a, 0, len(a)-1)
 
 
