@@ -4,7 +4,7 @@ def dfs(i,j):
 
     visited[i][j] = 1
 
-    for k in range(8): # to number of nodes
+    for k in range(8): # to number of possible nodes around given vertex
         if isSafe(i+rowNbr[k],j+colNbr[k]):
             dfs(i+rowNbr[k],j+colNbr[k])
 
