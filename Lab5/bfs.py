@@ -2,23 +2,24 @@ def enqueue(n):
     queue.append(n)
 
 def dequeue():
-    queue.pop(0)
+    return queue.pop(0)
 
-def bfs(k):
+def bfs(k, queue):
     visited[k] = 1
     enqueue(k)
     while queue:
         poppedItem = dequeue()
-        for i in adjacencyMatrix[poppedItem]:
-            if visited[i] == 0:
-                enqueue(i)
-                visited[i] = 1
-                print(i)
+        for i in range(len(adjacencyMatrix[poppedItem])):
+            if i == 1:
+                if visited[i] == 0:
+                    enqueue(i)
+                    visited[i] == 1
+                    print(i)
 
-adjacencyMatrix = [[1,1,1,0], [1,0,0,0], [1,1,1,0], [0,0,0,1]]
+adjacencyMatrix = [[0,1,1,1,0,0], [1,0,1,0,1,0], [1,1,0,0,0,0],[1,0,0,0,1,1], [0,1,0,1,0,1], [0,0,0,1,1,0]]
 visited = [0,0,0,0]
-n = 4
-sourceVertex = 3
+n = 6
+sourceVertex = 0
 queue = []
 
-print(bfs(sourceVertex))
+print(bfs(sourceVertex, queue))
