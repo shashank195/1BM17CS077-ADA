@@ -1,25 +1,37 @@
-def enqueue(n):
-    queue.append(n)
+from collections import defaultdict
 
-def dequeue():
-    return queue.pop(0)
+class Graph:
+    def __init__(self):
+        self.graph = defaultdict(list)
+    
+    def addEdgeToVertex(self, vertex, edge):
+        self.graph[vertex].append(edge)
+    
+    def BFS(self, s):
+        visited = [0] * len(self.graph)
+        queue = []
 
-def bfs(k, queue):
-    visited[k] = 1
-    enqueue(k)
-    while queue:
-        poppedItem = dequeue()
-        for i in range(len(adjacencyMatrix[poppedItem])):
-            if i == 1:
+        queue.append(s)
+        visited[s] = 1
+
+        while queue:
+            item = queue.pop(0)
+            print(item, end=" ")
+
+            for i in self.graph[item]:
                 if visited[i] == 0:
-                    enqueue(i)
-                    visited[i] == 1
-                    print(i)
+                    queue.append(i)
+                    visited[i] = 1
 
-adjacencyMatrix = [[0,1,1,1,0,0], [1,0,1,0,1,0], [1,1,0,0,0,0],[1,0,0,0,1,1], [0,1,0,1,0,1], [0,0,0,1,1,0]]
-visited = [0,0,0,0]
-n = 6
-sourceVertex = 0
-queue = []
+g = Graph()
+g.addEdgeToVertex(0, 1) 
+g.addEdgeToVertex(0, 2) 
+g.addEdgeToVertex(1, 2) 
+g.addEdgeToVertex(2, 0) 
+g.addEdgeToVertex(2, 3) 
+g.addEdgeToVertex(3, 3) 
 
-print(bfs(sourceVertex, queue))
+print(g.graph)
+g.BFS(2)
+
+# make a dict out of an adjacency matrix
