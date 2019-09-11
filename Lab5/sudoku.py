@@ -1,6 +1,15 @@
 from math import sqrt
 
 def solveSudoku(grid):
+    count = 0
+    for i in range(n):
+        for j in range(n):
+            if grid[i][j] != 0:
+                count += 1 
+
+    if count == 16:
+        return True
+
     for row in range(n):
         for col in range(n):
             if grid[row][col] == 0:
@@ -18,18 +27,24 @@ def isSafe(grid, num, row, col):
 
 def usedInRow(grid, num, row):
     for col in range(n):
-        return grid[row][col] == num
+        # return grid[row][col] == num
+        if grid[row][col] == num:
+            return True
     return False
 
 def usedInCol(grid, num, col):
     for row in range(n):
-        return grid[row][col] == num
+        # return grid[row][col] == num
+        if grid[row][col] == num:
+            return True
     return False
 
 def usedinBox(grid, num, boxStartRow, boxStartCol):
     for row in range(int(sqrt(n))):
         for col in range(int(sqrt(n))):
-            return grid[row+boxStartRow][col+boxStartCol] == num
+            # return grid[row+boxStartRow][col+boxStartCol] == num
+            if grid[row+boxStartRow][col+boxStartCol]==num:
+                return True
     return False
 
 #4x4 grid
@@ -40,5 +55,6 @@ grid = [[2,0,0,0],
         [0,2,4,0]]
 
 print(solveSudoku(grid))
+print(grid)
 
 
