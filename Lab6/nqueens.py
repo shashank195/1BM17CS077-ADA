@@ -22,8 +22,6 @@ def place(k, i):
             return False
     return True
 
-print(x)
 
 NQueens(n,k)
-print(x)
 
